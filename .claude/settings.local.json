@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /Users/zengsh_agent/nanops/backend && uv pip install -r requirements.txt)",
+      "Bash(uv venv && source .venv/bin/activate && uv pip install -r backend/requirements.txt)",
+      "Bash(uv pip install -r frontend/requirements.txt)",
+      "Bash(curl -s http://localhost:8000/ 2>/dev/null || echo \"Backend not running\")",
+      "Bash(uv pip install -r /Users/zengsh_agent/nanops/backend/requirements.txt --force-reinstall)",
+      "Bash(curl -s http://localhost:8000/)",
+      "Bash(sleep 2 && curl -s http://localhost:5000/ | head -20)",
+      "Bash(uv pip install requests)",
+      "Bash(curl -s -X POST -F \"file=@/Users/zengsh_agent/nanops/SPEC.md\" http://localhost:8000/api/upload)",
+      "Bash(/Users/zengsh_agent/nanops/.venv/bin/python -c \"\nfrom PIL import Image\nimport numpy as np\nimg = Image.fromarray\\(np.random.randint\\(0, 255, \\(200, 200, 3\\), dtype=np.uint8\\)\\)\nimg.save\\('/tmp/test.png'\\)\nprint\\('Created test.png'\\)\n\")",
+      "Bash(curl -s -X POST -F \"file=@/tmp/test.png\" http://localhost:8000/api/upload)",
+      "Bash(curl -s -X POST \"http://localhost:8000/api/chat\" \\\\\n  -F \"session_id=39507e00-8354-4048-82fc-a4dd2120f057\" \\\\\n  -F \"message=Make the image brighter\")",
+      "Bash(pkill -f \"python.*main.py\" 2>/dev/null; sleep 1)",
+      "Bash(sleep 2 && curl -s -X POST \"http://localhost:8000/api/chat\" \\\\\n  -F \"session_id=39507e00-8354-4048-82fc-a4dd2120f057\" \\\\\n  -F \"message=Make the image brighter\")",
+      "Bash(curl -s -X POST \"http://localhost:8000/api/chat\" -F \"session_id=268e0d3e-849c-4288-b8f0-61a1ddfe7fca\" -F \"message=Make it brighter\")",
+      "Bash(curl -s -X POST \"http://localhost:8000/api/apply\" -F \"session_id=268e0d3e-849c-4288-b8f0-61a1ddfe7fca\" -F \"operation=brightness\" -F \"value=1.3\")",
+      "Bash(curl -s http://localhost:5000/ | head -10)",
+      "Bash(lsof -i:5000)",
+      "Bash(curl -s http://localhost:5000/)",
+      "Bash(curl -s http://127.0.0.1:5000/ 2>&1 | head -20)",
+      "Bash(open http://localhost:5000)",
+      "Bash(lsof -i:5000 -i:8000)",
+      "Bash(git add -A && git status)",
+      "Bash(git rm --cached -r .claude && git add .gitignore 2>/dev/null || echo \"No .gitignore yet\")"
+    ]
+  }
+}

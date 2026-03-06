@@ -24,7 +24,8 @@
       "Bash(open http://localhost:5000)",
       "Bash(lsof -i:5000 -i:8000)",
       "Bash(git add -A && git status)",
-      "Bash(git rm --cached -r .claude && git add .gitignore 2>/dev/null || echo \"No .gitignore yet\")"
+      "Bash(git rm --cached -r .claude && git add .gitignore 2>/dev/null || echo \"No .gitignore yet\")",
+      "Bash(gh repo create nanoshop --public --source=. --push)"
     ]
   }
 }
